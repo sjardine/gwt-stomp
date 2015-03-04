@@ -228,7 +228,7 @@
           headers = args[0], connectCallback = args[1];
           break;
         case 3:
-          if (args[1] instanceof Function) {
+          if (args[1] && {}.toString.call(args[1])==='[object Function]') {
             headers = args[0], connectCallback = args[1], errorCallback = args[2];
           } else {
             headers.login = args[0], headers.passcode = args[1], connectCallback = args[2];
