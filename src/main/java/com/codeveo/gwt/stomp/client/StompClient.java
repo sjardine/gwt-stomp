@@ -89,15 +89,12 @@ public class StompClient {
             self.@com.codeveo.gwt.stomp.client.StompClient::onConnected()();
         };
 
-        // TODO: Not used. Could not add to connect() because stomp.connect() is looking
-        //       for Function object while parsing arguments.
     	var onError = function (cause) {
     		self.@com.codeveo.gwt.stomp.client.StompClient::onError(Ljava/lang/String;)(cause);
     	};
 
         if (overSockJs === true) {
             var socket = new $wnd.SockJS(wsURL);
-
             self.@com.codeveo.gwt.stomp.client.StompClient::jsoStompClient = $wnd.Stomp.over(socket);
         } else {
             self.@com.codeveo.gwt.stomp.client.StompClient::jsoStompClient = $wnd.Stomp.client(wsURL);
@@ -107,7 +104,7 @@ public class StompClient {
             self.@com.codeveo.gwt.stomp.client.StompClient::jsoStompClient.debug = null;
         }
 
-        self.@com.codeveo.gwt.stomp.client.StompClient::jsoStompClient.connect({}, onConnected);
+        self.@com.codeveo.gwt.stomp.client.StompClient::jsoStompClient.connect({}, onConnected, onError);
     }-*/;
 
     private native final void __disconnect()
